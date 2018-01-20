@@ -43,6 +43,9 @@
 (type true)
 (type false)
 
+(type 'iAmSymbol)
+(type :a)
+
 ;; Arithmetic Operations
 
 ;; Add

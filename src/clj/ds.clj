@@ -2,7 +2,9 @@
 
 ;; Data structures
 ;; (print (1 2 3)) ;; raises exception
+(type '(1 2 3))
 (print '(1 2 3))  ;;list
+(type [1 2 3])
 (print [1 2 3])   ;; vector
 
 (first '(7 8 9))
@@ -48,3 +50,19 @@
 (println #{:a :b :c})
 (println #{1 2 3})
 (println #{1 :b "Three"})
+
+;; sequences
+(cons 1 nil)
+(cons 1 (cons 2 nil))
+
+(cons 1 '(2 3 4 5 6))
+(cons 1 [2 3 4])
+
+;; destructuring 
+(let [[a b c] '(:a :b)
+      [p q] [10 20]
+      {x :x y :y} {:x 60 :y 70}
+      {:keys [l m] :or {l "London"}} {:m "Mumbai" :n "New York"}
+      {first 0 last-but-one 3} [100 200 300 400 500]]
+  (for [var [a b c p q x y l m first last-but-one]]
+    (println var)))
