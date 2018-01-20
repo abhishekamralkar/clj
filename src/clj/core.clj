@@ -19,6 +19,7 @@
 (println 22/7) ;;fraction
 (println true)
 (println *ns*)
+(println 0x64)
 
 (println :a)
 (println (keyword "a"))
@@ -97,6 +98,10 @@
   1
   2)
 
+(if []
+  :then
+  :else)
+
 ;; switch like condition   
 (let [grade 75]
   (cond
@@ -130,44 +135,31 @@
     a
     (recur (+ a b) a (dec cnt))))
 
+;; Blocks
+(do
+  (def x 90)
+  (def y 160)
+  (+ x y)
+  (println (+ x y))
+  #{y x})
 
-;; Data structures
-;; (print (1 2 3)) ;; raises exception
-(print '(1 2 3))  ;;list
-(print [1 2 3])   ;; vector
+;; block under controlled loop iteration
+(dotimes [i 10]
+  (println (str "This is loop " i)))
 
-(first '(7 8 9))
-(second '(7 8 9))
-(rest '(7 8 9))
-(nth '(7 8 9 10 11 12) 3)
-(last '(7 8 9))
+;; quot, quote, syntax-quote and unquote
+(quot 50 10) ;;arithmetic
 
-(first [7 8 9])
-(second [7 8 9])
-(rest [7 8 9])
-(nth [7 8 9 10 11 12] 3)
-(last [7 8 9])
+(quote
+ (+ 23 78))
 
-(map identity '(1 2 3))
-(map odd? [1 2 3])
+(println '(+ 23 78))
 
-;; define simple function 
-(defn add [a b]
-  (+ a b))
+(println `(+ 23 78)) ;; as code
 
-(reduce add '(1 2 3 4 5))
-(reduce add (range 5))
+(let [operation '+]
+  `(~operation 1 5 10))
 
-;; lambda function
-(def one_to_100 (range 100))
-(reduce #(+ %1 %2) one_to_100)
-(filter #(not (even? %)) one_to_100)
-(keep #(if (odd? %) (+ 1000 %)) (range 10))
+(let [x '(1 5 10)]
+  `(~@x 15))
 
-;; maps
-(println {:a 1 :b 2})
-(:a {:a 1 :b 2})
-(:b {:a 1 :b 2})
-(get-in {:a {:c 1} :b 2} [:a :c])
-(keys {:a 1 :b 5 :c 10})
-(vals {:a 1 :b 5 :c 10})
