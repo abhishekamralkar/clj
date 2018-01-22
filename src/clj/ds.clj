@@ -50,6 +50,8 @@
 (println #{:a :b :c})
 (println #{1 2 3})
 (println #{1 :b "Three"})
+(clojure.set/intersection #{ 1 2 3} #{2 3 4 5})
+(clojure.set/union #{ 1 2 3} #{2 3 4 5})
 
 ;; sequences
 (cons 1 nil)
