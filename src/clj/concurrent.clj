@@ -67,17 +67,20 @@
   (println @counter)
   (Thread/sleep 250))
 
+;; agents
+(def counter (agent 0))
+(send counter inc)
 
 ;; pmap
 (partition-all 3 (range 100))
 
-(time 
-  (map inc (range 1000)))
+(time
+ (map inc (range 1000)))
 
-(time 
-  (pmap inc (range 1000)))
+(time
+ (pmap inc (range 1000)))
 
-(time 
-  (pmap 
-      #(doall (map inc %)) 
-      (partition-all 3 (range 1000))))  
+(time
+ (pmap
+  #(doall (map inc %))
+  (partition-all 3 (range 1000))))

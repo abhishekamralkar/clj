@@ -114,6 +114,13 @@
     (>= grade 60) "D"
     :else "F"))
 
+(let [value 2]
+  (condp = value
+    1 "one"
+    2 "two"
+    3 "three"
+    (str "unexpected value, \"" value \")))
+
 ;; for loop
 (for [a (range 5)]
   a)

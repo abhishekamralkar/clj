@@ -50,8 +50,8 @@
 (println #{:a :b :c})
 (println #{1 2 3})
 (println #{1 :b "Three"})
-(clojure.set/intersection #{ 1 2 3} #{2 3 4 5})
-(clojure.set/union #{ 1 2 3} #{2 3 4 5})
+(clojure.set/intersection #{1 2 3} #{2 3 4 5})
+(clojure.set/union #{1 2 3} #{2 3 4 5})
 
 ;; sequences
 (cons 1 nil)
@@ -68,3 +68,30 @@
       {first 0 last-but-one 3} [100 200 300 400 500]]
   (for [var [a b c p q x y l m first last-but-one]]
     (println var)))
+
+;; transients
+
+(defn vrange [n]
+  (loop [i 0 v []]
+    (if (< i n)
+      (recur (inc i) (conj v i))
+      v)))
+
+(defn vrange2 [n]
+  (loop [i 0 v (transient [])]
+    (if (< i n)
+      (recur (inc i) (conj! v i))
+      (persistent! v))))
+
+(time 
+  (def v (vrange 1000000)))
+
+(time 
+  (def v2 (vrange2 1000000)))
+
+
+(def t-map (transient {:a 1 :b 2}))
+
+(assoc! t-map :a 10)
+
+(get :a t-map)
