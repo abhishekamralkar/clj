@@ -24,15 +24,15 @@
 (add 1 5 10 15)
 
 ;; Contract based programming - function with pre post condition
-(defn add [a b]
+(defn substract [a b]
   {:pre [(pos? a) (pos? b)]
-   :post [(< (* a b))]}
-  (+ a b))
+   :post [(< % (max a b))]}
+  (- a b))
 
-(add -2 -3)
-(add 2 -3)
-(add 2 -3)
-(add 2 3)
+(substract -2 -3)
+(substract 2 -3)
+(substract -2 3)
+(substract 3 2)
 
 ;; type hints performance
 
