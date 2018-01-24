@@ -81,9 +81,8 @@
 (mod 12 3)
 
 ;; Define variable
-(def x 45)
-(def y 54)
-(def x 450)
+(def ^:dynamic x 45)
+(def ^:dynamic y 54)
 (+ x y)
 
 (binding [x 2 y 3]
