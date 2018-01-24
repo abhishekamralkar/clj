@@ -67,6 +67,23 @@
   (println @counter)
   (Thread/sleep 250))
 
+(do
+  (future
+    (dosync
+     (println "async")
+     (alter counter inc)
+     (println @counter)
+     (Thread/sleep 500)
+     (alter counter inc)
+     (println @counter)))
+  (dosync
+   (println "sync")
+   (alter counter inc)
+   (println @counter)
+   (Thread/sleep 500)
+   (alter counter inc)
+   (println @counter)))
+
 ;; agents
 (def counter (agent 0))
 (send counter inc)

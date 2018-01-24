@@ -121,6 +121,18 @@
     3 "three"
     (str "unexpected value, \"" value \")))
 
+(condp #(%1 %2) :foo
+  string? "it's a string"
+  keyword? "it's a keyword"
+  symbol? "it's a symbol"
+  fn? "it's a function"
+  "something else!")
+
+(condp some [1 2 3 4]
+  #{0 6 7} :>> inc
+  #{4 5 9} :>> dec
+  #{1 2 3} :>> #(+ % 3))
+
 ;; for loop
 (for [a (range 5)]
   a)

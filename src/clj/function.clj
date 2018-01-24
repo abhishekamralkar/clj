@@ -36,6 +36,8 @@
 
 ;; type hints performance
 
+(set! *warn-on-reflection* true)
+
 (defn len [x]
   (.length x))
 
