@@ -8,7 +8,7 @@
   (println "deref: " (deref result))
   (println "@: " @result))
 
-(deref (future (Thread/sleep 1000) 0) 100 5) ;; return 5 if compuattion takjes more than 100ms
+(deref (future (Thread/sleep 1000) 0) 100 5) ;; return 5 if computation takes more than 100ms
 
 (realized? (future (Thread/sleep 1000)))
 
@@ -67,6 +67,7 @@
   (println @counter)
   (Thread/sleep 250))
 
+;; attempt block multiple times if transaction does not succeed
 (do
   (future
     (dosync

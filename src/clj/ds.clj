@@ -1,7 +1,8 @@
 (ns clj.ds)
 
-;; Data structures
-;; (print (1 2 3)) ;; raises exception
+;; Data structures - persistent (with structural sharing), immutable by default 
+
+(print (1 2 3)) ;; raises exception
 (type '(1 2 3))
 (print '(1 2 3))  ;;list
 (type [1 2 3])

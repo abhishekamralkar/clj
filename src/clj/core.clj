@@ -2,6 +2,8 @@
 
 ;; s-expression with prefix notation
 ;; (operation/function arguments)
+;; special form if, let, do, quote, loop, recur, throw, try
+
 
 ;; which clojure version repl is running on ?
 (clojure-version)
@@ -12,14 +14,14 @@
 (doc println)
 
 ;; print it on console/repl
-(println \a)
-(println "TWO in String")
-(println 2)
-(println 2.5555557)
+(println \a) ;;character
+(println "TWO in String") ;;string
+(println 2) ;; long
+(println 2.5555557) ;; double
 (println 22/7) ;;fraction
-(println true)
+(println true) ;;boolean
 (println *ns*)
-(println 0x64)
+(println 0x64)  ;; byte
 
 (println :a)
 (println (keyword "a"))
@@ -32,6 +34,7 @@
 
 (type 1)
 (type (short 1))
+(type 2233.445)
 
 (type 1000000000000000000000000)
 (type 10000000000000000.12345600000000)
@@ -185,3 +188,9 @@
 (let [x '(1 5 10)]
   `(~@x 15))
 
+;; try, catch, finally
+
+(try
+  (/ 1 0)
+  (catch ArithmeticException e (str "caught exception: " (.getMessage e)))
+  (finally (prn "final exception.")))
