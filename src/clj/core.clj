@@ -86,6 +86,9 @@
 (def x 450)
 (+ x y)
 
+(binding [x 2 y 3]
+  (+ x y))
+  
 ;; define constant
 (def ^:const p 10)
 (print p)
