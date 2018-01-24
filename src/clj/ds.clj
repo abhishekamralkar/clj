@@ -8,6 +8,8 @@
 (type [1 2 3])
 (print [1 2 3])   ;; vector
 
+
+(list 12 34 65)
 (first '(7 8 9))
 (second '(7 8 9))
 (rest '(7 8 9))
