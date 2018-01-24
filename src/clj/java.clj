@@ -18,7 +18,8 @@
     (get "os.name"))
 
 (-> (System/getProperties)
-    (.get "os.name"))
+    (.get "os.name")
+    (.toUpperCase))
 
 (doto
  (new java.util.HashMap)

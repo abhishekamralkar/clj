@@ -78,7 +78,7 @@
 (double (/ 1 2 3))
 
 ;; modulus
-(mod 12 3)
+(mod 11 3)
 
 ;; Define variable
 (def ^:dynamic x 45)
@@ -177,6 +177,7 @@
 ;; quot, quote, syntax-quote and unquote
 (quot 50 10) ;;arithmetic
 
+;(+ 23 78)
 (quote
  (+ 23 78))
 

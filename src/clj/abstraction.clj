@@ -29,6 +29,8 @@
   (full-moon-behavior [x]
     (str name " will howl and murder")))
 
+(full-moon-behavior (->WereWolf "dracula" "blood sucker"))
+
 (defprotocol P
   (foo [x])
   (bar-me [x] [x y]))
@@ -40,6 +42,7 @@
   (bar-me [x] b)
   (bar-me [x y] (+ c y)))
 
+(bar-me (Foo. 1 2 3))
 (bar-me (Foo. 1 2 3) 42)
 (assoc (Foo. 1 2 3) :new-attr "value") ;;exception, not allowed
 

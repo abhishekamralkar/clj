@@ -54,7 +54,7 @@
       (recur (inc i))
       i)))
 
-(time (foo 100000))
+(time (foo 1000000))
 
 (defn foo2 [n]
   (let [n (int n)]
@@ -63,4 +63,4 @@
         (recur (inc i))
         i))))
 
-(time (foo2 100000))
+(time (foo2 1000000))
