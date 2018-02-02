@@ -174,6 +174,9 @@
 (dotimes [i 10]
   (println (str "This is loop " i)))
 
+(dorun 5 
+  (repeatedly #(println "hi")))  
+
 ;; quot, quote, syntax-quote and unquote
 (quot 50 10) ;;arithmetic
 
