@@ -10,5 +10,5 @@ pom.xml.asc
 .hgignore
 .hg/
 *.data
-.vscode/db
+.vscode
 data/db
